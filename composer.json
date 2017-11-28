@@ -1,0 +1,34 @@
+{
+    "name": "mazer/routemap",
+    "description": "A web framework that WYSIWYG",
+    "type": "project",
+    "keywords": [
+        "PHP framework", 
+        "RESTful", 
+        "REST", 
+        "WYSIWYG"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MazeR",
+            "email": "mazer0701@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "tightenco/collect": "^5.5",
+        "mikecao/flight": "^1.3",
+        "catfan/Medoo": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "RouteMap\\": "src/", 
+            "Application\\": "application/", 
+            "Extend\\": "extend/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.4"
+    }
+}
