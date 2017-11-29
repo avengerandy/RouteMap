@@ -1,6 +1,6 @@
 
 # RouteMap
- ***
+
  > A high readability PHP combination framework that grouping routers by path-segment #1
 
 ## Components
@@ -14,56 +14,56 @@
 ## Grouping Routers Features
 
 * ### index.php
-RouteMap's index.php is like this
-```php
-require 'vendor/autoload.php';
+  RouteMap's index.php is like this
+  ```php
+  require 'vendor/autoload.php';
 
-use RouteMap\Core\ApplicationFactory;
+  use RouteMap\Core\ApplicationFactory;
 
-$app = ApplicationFactory::create();
-$app->router();
-$app->start();
-```
+  $app = ApplicationFactory::create();
+  $app->router();
+  $app->start();
+  ```
 
 * ### ApplicationFactory
-ApplicationFactory will create application by path-segment #1
-if request url is
-```
-https://domain_name/application1/var1/
-```
-create application1.php from
-```
-/
-+ /application
-  + /application1.php
-```
+  ApplicationFactory will create application by path-segment #1  
+  if request url is
+  ```
+  https://domain_name/application1/var1/
+  ```
+  then create application1.php from
+  ```
+  /
+  + /application
+    + /application1.php
+  ```
 
 * ### Router setting
-In application1.php, method router is for routers setting
-```php
-namespace Application;
+  In application1.php, method router is for routers setting
+  ```php
+  namespace Application;
 
-use Flight;
-use RouteMap\Core\Application;
+  use Flight;
+  use RouteMap\Core\Application;
 
-class application1 extends Application {
-	public function router() {
-		Flight::route('/', function() {
-			echo 'hello, world';
-		});
-    }
-}
-```
+  class application1 extends Application {
+      public function router() {
+          Flight::route('/', function() {
+	          echo 'hello, world';
+	      });
+      }
+  }
+  ```
 
 * ### Example
-request url
-```
-https://domain_name/application1/
-```
-will see
-```
-hello, world
-```
+  request url
+  ```
+  https://domain_name/application1/
+  ```
+  will see
+  ```
+  hello, world
+  ```
 
 ## License
 
