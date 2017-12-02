@@ -38,6 +38,7 @@ class ApplicationTest extends TestCase {
 
     public function testFlightRedirectOutside() {
         Flight::redirectOutside('/application2/var2');
+        ob_clean(); //redirectOutside will echo path
         $this->assertEquals('/', Flight::request()->base);
     }
 
