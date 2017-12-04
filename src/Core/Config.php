@@ -12,7 +12,9 @@ class Config {
 
     private static $instance;
 
-    private function __construct() {}
+    private function __construct() {
+        Flight::set(include dirname(__FILE__) . '/../../config/config.php');
+    }
 
     public static function getInstance() {
         if ( is_null( self::$instance ) ) {

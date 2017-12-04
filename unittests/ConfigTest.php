@@ -23,47 +23,55 @@ class ConfigTest extends TestCase {
     /**
      * @depends testSingleton
      */
-    function testSetAndGet($Config) {
-        $Config->set('a', 1);
-        $var = $Config->get('a');
-        $this->assertEquals(1, $var);
+    function testConfigFile($Config) {
+        $var = $Config->get('framework');
+        $this->assertEquals('RouteMap', $var);
     }
 
     /**
      * @depends testSingleton
      */
-    function testSetAndGetObject($Config) {
+    function testSetAndGetWithBasicValue($Config) {
+        $Config->set('keyName', 'value');
+        $var = $Config->get('keyName');
+        $this->assertEquals('value', $var);
+    }
+
+    /**
+     * @depends testSingleton
+     */
+    function testSetAndGetWithObjectValue($Config) {
         $testObject = new testClassForSet();
-        $Config->set('a', $testObject);
-        $var = $Config->get('a');
+        $Config->set('keyName', $testObject);
+        $var = $Config->get('keyName');
         $this->assertEquals('value 2', $var->var2);
     }
 
     /**
      * @depends testSingleton
      */
-    function testSetAndGetArray($Config) {
-        $Config->set('a', ['a1', 'a2']);
-        $var = $Config->get('a');
-        $this->assertEquals('a2', $var[1]);
+    function testSetAndGetWithArrayValue($Config) {
+        $Config->set('keyName', ['value1', 'value2']);
+        $var = $Config->get('keyName');
+        $this->assertEquals('value2', $var[1]);
     }
 
     /**
      * @depends testSingleton
      */
-    function testSetAndGetArrayWithKey($Config) {
-        $Config->set('a', [
-            'a1' => 'var_a1',
-            'a2' => 'var_a2'
+    function testSetAndGetWithAssocationArrayValue($Config) {
+        $Config->set('keyName', [
+            'subKey1' => 'value1',
+            'subKey2' => 'value2'
         ]);
-        $var = $Config->get('a');
-        $this->assertEquals('var_a1', $var['a1']);
+        $var = $Config->get('keyName');
+        $this->assertEquals('value1', $var['subKey1']);
     }
 
     /**
      * @depends testSingleton
      */
-    function testSetAndGetObject_Only($Config) {
+    function testSetAndGetWithObjectKey($Config) {
         $testObject = new testClassForSet();
         $Config->set($testObject);
         $var = $Config->get('var2');
@@ -73,41 +81,41 @@ class ConfigTest extends TestCase {
     /**
      * @depends testSingleton
      */
-    function testSetAndGetArrayWithKey_Only($Config) {
+    function testSetAndGetWithAssocationArrayKey($Config) {
         $Config->set([
-            'a1' => 'var_a1',
-            'a2' => 'var_a2'
+            'keyName1' => 'value1',
+            'keyName2' => 'value2'
         ]);
-        $var = $Config->get('a1');
-        $this->assertEquals('var_a1', $var);
+        $var = $Config->get('keyName1');
+        $this->assertEquals('value1', $var);
     }
 
     /**
      * @depends testSingleton
      */
     function testClear($Config) {
-        $Config->set('b', 1);
-        $Config->clear('b');
-        $var = $Config->get('b');
-        $this->assertEquals(null, $var);
+        $Config->set('keyName', 'value');
+        $Config->clear('keyName');
+        $var = $Config->get('keyName');
+        $this->assertNull($var);
     }
 
     /**
      * @depends testSingleton
      */
     function testClearAll($Config) {
-        $Config->set('c', 1);
+        $Config->set('keyName', 'value');
         $Config->clear();
-        $var = $Config->get('c');
-        $this->assertEquals(null, $var);
+        $var = $Config->get('keyName');
+        $this->assertNull($var);
     }
 
     /**
      * @depends testSingleton
      */
     function testHas($Config) {
-        $Config->set('d', 1);
-        $this->assertTrue($Config->has('d'));
+        $Config->set('keyName', 'value');
+        $this->assertTrue($Config->has('keyName'));
     }
 
 }
