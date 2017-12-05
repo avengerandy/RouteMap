@@ -21,7 +21,7 @@ class ApplicationFactory {
     private static function getDefaultApplication() {
         $applicationName = Config::getInstance()->get('default_application');
         $url = Config::getInstance()->get('default_url');
-        Flight::request()->url .= $applicationName . $url;
+        Flight::request()->url = '/' . $applicationName . $url;
         return $applicationName;
     }
 

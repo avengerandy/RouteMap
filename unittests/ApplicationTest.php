@@ -3,7 +3,6 @@
 use PHPUnit\Framework\TestCase;
 use RouteMap\Core\ApplicationFactory;
 use RouteMap\Core\Application;
-use Flight;
 
 class ApplicationTest extends TestCase {
 
@@ -49,12 +48,9 @@ class ApplicationTest extends TestCase {
         $this->assertEquals('Application\Index', get_class($app));
     }
 
-    /*
     public function testDefaultUrl() {
-        $_SERVER['REQUEST_URI'] = '/';
-        echo Flight::request()->url;
         $this->assertEquals('/hello', Flight::request()->url);
     }
-    */
+    
 
 }
