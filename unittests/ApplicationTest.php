@@ -3,13 +3,14 @@
 use PHPUnit\Framework\TestCase;
 use RouteMap\Core\ApplicationFactory;
 use RouteMap\Core\Application;
+use Flight;
 
 class ApplicationTest extends TestCase {
-    
+
     public function testFactory() {
-        $_SERVER['REQUEST_URI'] = '/application1/var1';
+        $_SERVER['REQUEST_URI'] = '/Index/var1';
         $app = ApplicationFactory::create();
-        $this->assertEquals('Application\application1', get_class($app));
+        $this->assertEquals('Application\Index', get_class($app));
         return $app;
     }
 
@@ -17,11 +18,11 @@ class ApplicationTest extends TestCase {
      * @depends testFactory
      */
     public function testGetApplication($app) {
-        $this->assertEquals('application1', $app->getApplication());
+        $this->assertEquals('Index', $app->getApplication());
     }
 
     public function testBase() {
-        $this->assertEquals('/application1', Flight::request()->base);
+        $this->assertEquals('/Index', Flight::request()->base);
     }
 
     public function testUrl() {
@@ -37,9 +38,23 @@ class ApplicationTest extends TestCase {
     }
 
     public function testFlightRedirectOutside() {
-        Flight::redirectOutside('/application2/var2');
+        Flight::redirectOutside('/Application2/var2');
         ob_clean(); //redirectOutside will echo path
         $this->assertEquals('/', Flight::request()->base);
     }
+
+    public function testGetDefaultApplication() {
+        $_SERVER['REQUEST_URI'] = '/';
+        $app = ApplicationFactory::create();
+        $this->assertEquals('Application\Index', get_class($app));
+    }
+
+    /*
+    public function testDefaultUrl() {
+        $_SERVER['REQUEST_URI'] = '/';
+        echo Flight::request()->url;
+        $this->assertEquals('/hello', Flight::request()->url);
+    }
+    */
 
 }

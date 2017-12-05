@@ -5,7 +5,7 @@ namespace Application;
 use Flight;
 use RouteMap\Core\Application;
 
-class application1 extends Application {
+class Index extends Application {
     public function router() {
         Flight::route('/hello', function() {
             echo 'hello, world';
