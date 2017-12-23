@@ -9,12 +9,4 @@ return [
 
     'default_url' => '/hello',
 
-    'db' => [
-
-        'username' => 'mazer',
-
-        'password' => 'aaapassword'
-    
-    ]
-
 ];

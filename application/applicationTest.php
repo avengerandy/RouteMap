@@ -5,13 +5,13 @@ namespace Application;
 use Flight;
 use RouteMap\Core\Application;
 
-class Application2 extends Application {
+class applicationTest extends Application {
 	public function router() {
 		Flight::route('/hello', function() {
-			echo 'application2 hello, world';
+			echo 'applicationTest hello, world';
 		});
 		Flight::route('/var/@var', function($var){
-			echo "application2 get var = $var";
+			echo "applicationTest get var = $var";
 		});
     }
 }
