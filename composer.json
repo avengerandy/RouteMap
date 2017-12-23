@@ -19,7 +19,7 @@
     "require": {
         "tightenco/collect": "^5.5",
         "mikecao/flight": "^1.3",
-        "catfan/Medoo": "^1.4"
+        "catfan/Medoo": "^1.5"
     },
     "autoload": {
         "psr-4": {
