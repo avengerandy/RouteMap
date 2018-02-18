@@ -7,7 +7,7 @@ use RouteMap\Core\Application;
 
 class Index extends Application {
     public function router() {
-        Flight::route('/hello', function() {
+        Flight::route('/', function() {
             echo 'hello, world';
         });
         Flight::route('/var/@var', function($var){
