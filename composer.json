@@ -1,12 +1,11 @@
 {
     "name": "mazer/routemap",
-    "description": "A web framework that WYSIWYG",
+    "description": "A web framework depend on flight",
     "type": "project",
     "keywords": [
         "PHP framework", 
         "RESTful", 
-        "REST", 
-        "WYSIWYG"
+        "REST"
     ],
     "license": "MIT",
     "authors": [
@@ -17,9 +16,7 @@
         }
     ],
     "require": {
-        "tightenco/collect": "^5.5",
-        "mikecao/flight": "^1.3",
-        "catfan/Medoo": "^1.5"
+        "mikecao/flight": "^1.3"
     },
     "autoload": {
         "psr-4": {
