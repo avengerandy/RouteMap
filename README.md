@@ -1,5 +1,7 @@
 
-<center>![RouteMap](./routemap.png)</center>
+<div style="text-align:center">
+  <img src = "https://raw.githubusercontent.com/avengerandy/RouteMap/develop/routemap.png"/>
+</div>
 
 # RouteMap
 
