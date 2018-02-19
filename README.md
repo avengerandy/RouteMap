@@ -1,7 +1,7 @@
 
-<div style="text-align:center">
-  <img src = "https://raw.githubusercontent.com/avengerandy/RouteMap/develop/routemap.png" width="50%"/>
-</div>
+<p align="center">
+  <img src = "https://raw.githubusercontent.com/avengerandy/RouteMap/develop/routemap.png" width="30%"/>
+</p>
 
 # RouteMap
 
