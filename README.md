@@ -1,6 +1,6 @@
 
 <div style="text-align:center">
-  <img src = "https://raw.githubusercontent.com/avengerandy/RouteMap/develop/routemap.png"/>
+  <img src = "https://raw.githubusercontent.com/avengerandy/RouteMap/develop/routemap.png" width="50%"/>
 </div>
 
 # RouteMap
