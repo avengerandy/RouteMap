@@ -37,20 +37,17 @@ class ApplicationTest extends TestCase {
     }
 
     public function testFlightRedirectOutside() {
-        Flight::redirectOutside('/Application2/var2');
-        ob_clean(); //redirectOutside will echo path
+        Flight::redirectOutside('/otherApplication');
         $this->assertEquals('/', Flight::request()->base);
+        $this->assertEquals('/otherApplication', ob_get_contents());
+        ob_clean(); //redirectOutside will echo path
     }
 
-    public function testGetDefaultApplication() {
+    public function testGetDefaultApplicationAndUrl() {
         $_SERVER['REQUEST_URI'] = '/';
         $app = ApplicationFactory::create();
         $this->assertEquals('Application\Index', get_class($app));
+        $this->assertEquals('/', Flight::request()->url);
     }
-
-    public function testDefaultUrl() {
-        $this->assertEquals('/hello', Flight::request()->url);
-    }
-    
 
 }

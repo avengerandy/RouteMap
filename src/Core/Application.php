@@ -33,13 +33,14 @@ abstract class Application {
         });
     }
 
-    abstract public function router();
+    abstract protected function router();
 
     public function getApplication() {
         return $this->application;
     }
 
     public function start() {
+        $this->router();
 		Flight::start();
     }
 

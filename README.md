@@ -71,6 +71,52 @@
   RouteMap router features is dependent on Flight  
   more router features please see [**Flight - Routing**](http://flightphp.com/learn/#routing)
 
+## Redirect
+
+* ### RedirectInside
+  ```php
+  https://domain_name/Index/var1/
+  ```
+  then create Index.php from
+  ```
+  /
+  + /application
+    + /Index.php
+  ```
+
+* ### RedirectOutside
+  In Index.php, method router is for routers setting
+  ```php
+  namespace Application;
+
+  use Flight;
+  use RouteMap\Core\Application;
+
+  class Index extends Application {
+    public function router() {
+      Flight::route('/', function() {
+          echo 'hello, world';
+      });
+      Flight::route('/var/@var', function($var){
+          echo 'get var = ' . $var;
+      });
+    }
+  }
+  ```
+
+* ### Example
+  request url
+  ```
+  https://domain_name/Index/
+  ```
+  will see "hello, world"
+
+  request url
+  ```
+  https://domain_name/Index/var/5
+  ```
+  will see "get var = 5"
+
 ## Config
 * ### Config File
   RouteMap Config File location

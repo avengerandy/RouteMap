@@ -13,8 +13,5 @@ class Index extends Application {
         Flight::route('/var/@var', function($var){
             echo 'get var = ' . $var;
         });
-        Flight::route('/redirect', function() {
-            Flight::redirectOutside('/application2/var/redirectVar');
-        });
     }
 }

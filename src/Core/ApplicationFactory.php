@@ -10,7 +10,7 @@ class ApplicationFactory {
     public static function create() {
         $applicationName = self::getApplicationName();
         $className = "Application\\" . $applicationName;
-        return new $className($applicationName);
+        return class_exists($className) ? new $className($applicationName) : die(Flight::notFound());
     }
 
     private static function getApplicationName() {
