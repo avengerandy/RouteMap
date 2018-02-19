@@ -138,20 +138,20 @@
   it can also set config by array and object  
   see [**Flight - Variables**](http://flightphp.com/learn/#variables)
 
-* ### Extend
-  if you want use your own class in RouteMap, composer's autoload is setting already
-  ```php
-  ...
-  "autoload": {
-    "psr-4": {
-      "RouteMap\\": "src/", 
-      "Application\\": "application/", 
-      "Extend\\": "extend/"
-    }
+## Extend
+if you want use your own class in RouteMap, composer's autoload is setting already
+```php
+...
+"autoload": {
+  "psr-4": {
+    "RouteMap\\": "src/", 
+    "Application\\": "application/", 
+    "Extend\\": "extend/"
   }
-  ...
-  ```
-  just put them in /extend folder and load with Extend namespace
+}
+...
+```
+just put them in /extend folder and load with Extend namespace
 
 ## License
 
